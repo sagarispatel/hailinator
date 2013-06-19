@@ -7,6 +7,12 @@ Twitter.configure do |config|
   config.oauth_token_secret = "cWACMscWhilSh7iyT8FHqkvkxzB01yDdCz7DC4b1M"
 end
 
-# Twitter.search("Hello @gem")
+tweet_array = Twitter.search("Hail damage").results
 
-# Twitter.search("I'm tweeting with @gem!")
+# puts "#{tweet_array.inspect}"
+
+tweets = tweet_array.each do |tweet|
+ 	puts "#{tweet.inspect}: #{tweet.text}"
+end
+
+# puts "#{tweet_array.inspect}"
