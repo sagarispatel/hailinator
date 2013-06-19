@@ -240,21 +240,21 @@ AUTHENTICATED
 end
 
 
-unless inspected_tweets?
+# unless inspected_tweets?
 
-  step 6
+#   step 6
 
-  puts <<-INSPECTED
+#   puts <<-INSPECTED
 
-Great, we're searching for stuff... Loop over the results and `puts` them to the screen.
+# Great, we're searching for stuff... Loop over the results and `puts` them to the screen.
 
-Hint: `.inspect` is your friend
+# Hint: `.inspect` is your friend
 
-INSPECTED
+# INSPECTED
 
-  exit
+#   exit
 
-end
+# end
 
 
 unless csv_file_exists?

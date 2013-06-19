@@ -1,4 +1,5 @@
 require 'twitter'
+require 'CSV'
 
 Twitter.configure do |config|
   config.consumer_key = "2V679I3ibUOUOMRaUBbAgw"
@@ -7,12 +8,24 @@ Twitter.configure do |config|
   config.oauth_token_secret = "cWACMscWhilSh7iyT8FHqkvkxzB01yDdCz7DC4b1M"
 end
 
-tweet_array = Twitter.search("Hail damage").results
+# tweet_array = Twitter.search("Hail damage").results
 
 # puts "#{tweet_array.inspect}"
 
-tweets = tweet_array.each do |tweet|
- 	puts "#{tweet.inspect}: #{tweet.text}"
+# tweets = tweet_array.map do |tweet|
+#  	puts "#{tweet.inspect}: #{tweet.text}"
+# end
+
+tweet_array = Twitter.search("Hail damage").results.map do |tweet|
+	tweet.inspect
 end
 
+
+
+
+
 # puts "#{tweet_array.inspect}"
+
+ CSV.open("tweets.csv", "wr") do |tweet|
+ 	csv << tweet.from_user, tweet.text, tweet.
+ end
