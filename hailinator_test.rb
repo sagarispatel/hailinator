@@ -88,7 +88,7 @@ def searching_twitter?
 end
 
 def inspected_tweets?
-  @inspected || searching_twitter?
+  @inspected || csv_file_exists?
 end
 
 def csv_file_exists?
@@ -202,7 +202,9 @@ TWITTER
     exit
 end
 
-unless Twitter.bearer_token?
+Twitter.home_timeline rescue nil
+
+unless Twitter.client?
   step 4
 
   puts <<-AUTHENTICATED
