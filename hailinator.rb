@@ -16,16 +16,19 @@ end
 #  	puts "#{tweet.inspect}: #{tweet.text}"
 # end
 
-tweet_array = Twitter.search("Hail damage").results.map do |tweet|
-	tweet.inspect
-end
+# tweet_array = Twitter.search("Hail damage").results.map do |tweet|
+# 	"#{tweet}"
+# end
 
+# # puts "#{tweet_array.inspect}"
 
+#  CSV.open("tweets.csv","wb") do |csv|
+#  	csv << 
+#  end
 
-
-
-# puts "#{tweet_array.inspect}"
-
- CSV.open("tweets.csv", "wr") do |tweet|
- 	csv << tweet.from_user, tweet.text, tweet.
- end
+ 	CSV.open("tweets.csv","wb") do |csv|
+ 		csv << ["handle", "text", "url"]			
+		Twitter.search("hail").results.map do |tweet|
+			csv << [tweet.from_user, tweet.text,tweet.user.url]
+		end
+	end
