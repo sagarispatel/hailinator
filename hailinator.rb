@@ -29,6 +29,7 @@ end
  	CSV.open("tweets.csv","wb") do |csv|
  		csv << ["handle", "text", "url"]			
 		Twitter.search("hail").results.map do |tweet|
-			csv << [tweet.from_user, tweet.text,tweet.user.url]
+			csv << [tweet.from_user, tweet.text,"twitter.com/#{tweet.from_user}/status/#{tweet.id}"]
+			# puts tweet.methods
 		end
 	end
